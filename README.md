@@ -11,15 +11,16 @@
 7. update the main.py
 8. update the app.py
 
+## How to run?
 
-# How to run?
-### STEPS:
+### STEPS
 
 Clone the repository
 
 ```bash
 https://github.com/entbappy/End-to-end-Text-Summarization
 ```
+
 ### STEP 01- Create a conda environment after opening the repository
 
 ```bash
@@ -30,12 +31,11 @@ conda create -n summary python=3.8 -y
 conda activate summary
 ```
 
-
 ### STEP 02- install the requirements
+
 ```bash
 pip install -r requirements.txt
 ```
-
 
 ```bash
 # Finally run the following command
@@ -43,10 +43,10 @@ python app.py
 ```
 
 Now,
+
 ```bash
 open up you local host and port
 ```
-
 
 ```bash
 Author: Krish Naik
@@ -55,77 +55,72 @@ Email: krishnaik06@gmail.com
 
 ```
 
+## AWS-CICD-Deployment-with-Github-Actions
 
-
-# AWS-CICD-Deployment-with-Github-Actions
-
-## 1. Login to AWS console.
+## 1. Login to AWS console
 
 ## 2. Create IAM user for deployment
 
-	#with specific access
+ #with specific access
 
-	1. EC2 access : It is virtual machine
+ 1. EC2 access : It is virtual machine
 
-	2. ECR: Elastic Container registry to save your docker image in aws
+ 2. ECR: Elastic Container registry to save your docker image in aws
 
+ #Description: About the deployment
 
-	#Description: About the deployment
+ 1. Build docker image of the source code
 
-	1. Build docker image of the source code
+ 2. Push your docker image to ECR
 
-	2. Push your docker image to ECR
+ 3. Launch Your EC2
 
-	3. Launch Your EC2 
+ 4. Pull Your image from ECR in EC2
 
-	4. Pull Your image from ECR in EC2
+ 5. Lauch your docker image in EC2
 
-	5. Lauch your docker image in EC2
+ #Policy:
 
-	#Policy:
+ 1. AmazonEC2ContainerRegistryFullAccess
 
-	1. AmazonEC2ContainerRegistryFullAccess
+ 2. AmazonEC2FullAccess
 
-	2. AmazonEC2FullAccess
-
-	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 238155895877.dkr.ecr.us-east-1.amazonaws.com/text-s
 
-	
-## 4. Create EC2 machine (Ubuntu) 
+- Save the URI: 238155895877.dkr.ecr.us-east-1.amazonaws.com/text-s
 
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
+## 4. Create EC2 machine (Ubuntu)
 
-	sudo apt-get update -y
+## 5. Open EC2 and Install docker in EC2 Machine
 
-	sudo apt-get upgrade
-	
-	#required
+ #optinal
 
-	curl -fsSL https://get.docker.com -o get-docker.sh
+ sudo apt-get update -y
 
-	sudo sh get-docker.sh
+ sudo apt-get upgrade
 
-	sudo usermod -aG docker ubuntu
+ #required
 
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
+ curl -fsSL <https://get.docker.com> -o get-docker.sh
 
+ sudo sh get-docker.sh
 
-# 7. Setup github secrets:
+ sudo usermod -aG docker ubuntu
 
-    AWS_ACCESS_KEY_ID=
+ newgrp docker
 
-    AWS_SECRET_ACCESS_KEY=
+## 6. Configure EC2 as self-hosted runner
 
-    AWS_REGION = us-east-1
+setting>actions>runner>new self hosted runner> choose os> then run command one by one
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+## 7. Setup github secrets
 
-    ECR_REPOSITORY_NAME = simple-app
+AWS_ACCESS_KEY_ID=
+
+AWS_SECRET_ACCESS_KEY=
+
+AWS_REGION = us-east-1
+
+AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+
+ECR_REPOSITORY_NAME = simple-app
